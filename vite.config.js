@@ -10,4 +10,8 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    build: {
+        outDir: 'dist', // Ensure the output directory is "dist"
+        emptyOutDir: true, // Clears the folder before each build
+    },
 });
