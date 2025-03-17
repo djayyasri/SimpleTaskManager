@@ -14,11 +14,14 @@ class ExampleTest extends TestCase
 {
     $response = $this->get('/');
 
-    $response->assertRedirect();  // Checks if it's a redirect
-    $response->assertStatus(302); // Ensures it actually redirects
+    // Ensure it redirects
+    $response->assertRedirect();
+    $response->assertStatus(302);
 
-    $finalResponse = $this->get($response->headers->get('Location')); // Follow redirect
-    $finalResponse->assertStatus(200); // Now check if final page is 200
+    // Follow the redirect and check final response
+    $finalResponse = $this->get($response->headers->get('Location'));
+    $finalResponse->assertStatus(200);
 }
+
 
 }
